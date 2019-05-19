@@ -51,7 +51,8 @@ const arrOfPeople = [
   },
 ]
 
-const listOfPlayers = []
+
+//const listOfPlayers = []
 const blueTeam = []
 const redTeam = []
 
@@ -63,7 +64,23 @@ class Player {
     this.placeBorn = placeBorn;
     }
 
-}
+  }  
+      const listPeopleChoices = () => {
+      const listElement = document.getElementById('people')
+      arrOfPeople.map(person => {
+        const li = document.createElement("li")
+        const button = document.createElement("button")
+         button.innerHTML = "Make Player"
+        button.addEventListener('click', function() {
+          makePlayer(person.id)
+        });
+        li.appendChild(button)
+        li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+        listElement.append(li)
+      })
+    }
+    
+    
 class DodgeBallPlayer extends Player {
   constructor(canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience,name, age, skillSet, placeBorn){
     super(age, skillSet, placeBorn, name)
@@ -78,39 +95,43 @@ class DodgeBallPlayer extends Player {
     this.placeBorn = placeBorn;
   }
 }
-const listOfPlayers = () =>{
-  const listElement = document.getElementById("player")
-   Player.push(redTeam => {
-    const li = document.createElement("li")
-    const button = document.createElement("butt")
-    button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(player.id)} )
-    li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-    listElement.append(li)
-   })
+//to make a list of people that can play dogdeball 
+//to make a list of people that can play dogdeball 
+const filterPlayer =(id)=>{ 
+  arrOfPeople.filter(player => player.id === id);
+  console.log('yes');
 }
+ const makePlayer = (id) => {
+   const dplay=arrOfPeople.filter(player => player.id === id);
+  const listElement = document.getElementById("players");
+  //makePlayer.map(players =>{
+  const li = document.createElement("li");
+  const rb = document.createElement("button");
+  rb.innerHTML = "Red Team";
+  rb.addEventListener('click', function() {
+    redTeammate(dplay)
+  } );
+  const bb = document.createElement("button");
+  bb.innerHTML = "Blue Team";
+  bb.addEventListener('click', function() {
+    blueTeammate(dplay)
+  } );
+  li.appendChild(rb);
+  li.appendChild(bb);
+  li.appendChild(document.createTextNode(dplay[0].name));
+  listElement.append(li);
+ //});
+}
+const blueTeammate = (bplayer) =>{
+  const listElement = document.getElementById("blue"); 
+  const li = document.createElement("li");
+  li.appendChild(document.createTextNode(bplayer[0].name));
+  listElement.append(li);
+}
+const redTeammate = (rplayer) =>{
+  const listElement = document.getElementById("red"); 
+  const li = document.createElement("li");
+  li.appendChild(document.createTextNode(rplayer[0].name));
+  listElement.append(li);
 
-class blueTeammate {
-  constructor(){}
-}
-class redTeammate {
-  constructor(){}
-}
-
-const listPeopleChoices = () => {
-  const listElement = document.getElementById('people')
-  arrOfPeople.map(person => {
-    const li = document.createElement("li")
-    const button = document.createElement("button")
-    button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(person.id)} )
-    li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-    listElement.append(li)
-  })
-}
-
-const makePlayer = (id) => {
-  console.log(`li ${id} was clicked!`)
 }
