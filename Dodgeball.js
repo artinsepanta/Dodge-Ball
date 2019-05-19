@@ -96,15 +96,13 @@ class DodgeBallPlayer extends Player {
   }
 }
 //to make a list of people that can play dogdeball 
-//to make a list of people that can play dogdeball 
 const filterPlayer =(id)=>{ 
   arrOfPeople.filter(player => player.id === id);
   console.log('yes');
 }
  const makePlayer = (id) => {
-   const dplay=arrOfPeople.filter(player => player.id === id);
+  const dplay=arrOfPeople.filter(player => player.id === id);
   const listElement = document.getElementById("players");
-  //makePlayer.map(players =>{
   const li = document.createElement("li");
   const rb = document.createElement("button");
   rb.innerHTML = "Red Team";
@@ -115,12 +113,12 @@ const filterPlayer =(id)=>{
   bb.innerHTML = "Blue Team";
   bb.addEventListener('click', function() {
     blueTeammate(dplay)
-  } );
+  });
   li.appendChild(rb);
   li.appendChild(bb);
   li.appendChild(document.createTextNode(dplay[0].name));
   listElement.append(li);
- //});
+ 
 }
 const blueTeammate = (bplayer) =>{
   const listElement = document.getElementById("blue"); 
@@ -133,5 +131,4 @@ const redTeammate = (rplayer) =>{
   const li = document.createElement("li");
   li.appendChild(document.createTextNode(rplayer[0].name));
   listElement.append(li);
-
 }
