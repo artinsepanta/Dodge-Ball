@@ -132,3 +132,13 @@ const redTeammate = (rplayer) =>{
   li.appendChild(document.createTextNode(rplayer[0].name));
   listElement.append(li);
 }
+//Test
+// if (typeof describe === 'function'){
+//   describe('listPeopleChoices', function(){
+//     it('should have a name, age, skillSet, placeBorn', function(){
+//       const listPeopleChoices = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+//       assert.equal(crewMember1.name, 'Rick Martinez');
+//       assert.equal(crewMember1.job, 'pilot');
+//       assert.equal(crewMember1.specialSkill, 'chemistry');
+//       assert.equal(crewMember1.ship, null);
+//     });
