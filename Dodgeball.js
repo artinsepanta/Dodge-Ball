@@ -133,12 +133,31 @@ const redTeammate = (rplayer) =>{
   listElement.append(li);
 }
 //Test
-// if (typeof describe === 'function'){
-//   describe('listPeopleChoices', function(){
-//     it('should have a name, age, skillSet, placeBorn', function(){
-//       const listPeopleChoices = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-//       assert.equal(crewMember1.name, 'Rick Martinez');
-//       assert.equal(crewMember1.job, 'pilot');
-//       assert.equal(crewMember1.specialSkill, 'chemistry');
-//       assert.equal(crewMember1.ship, null);
-//     });
+if (typeof describe === 'function') {
+  describe('#map()', () => {
+    
+    const listPeopleChoices = map(arrOfPeople, (person) => 
+    {
+       button.innerHTML = "Make Player"
+       button.addEventListener('click', function() {
+         makePlayer(person.id)
+    });
+    it('should return new array with mapped items', () => {
+      assert.deepEqual(mapped, []);
+    });
+    it('should not affect the original array', () => {
+      assert.deepEqual(arrOfPeople );
+      });
+    });
+
+   describe('#filter()', () => {
+    it('should return an array of items that pass the predicate test', () => {
+      const filterPlayer = (id) => {
+      arrOfPeople.filter(player => player.id === id);
+      console.log('yes');
+      };
+      assert.deepEqual(filterPlayer, []);
+    });
+  });
+  })
+}
